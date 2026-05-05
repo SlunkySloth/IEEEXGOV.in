@@ -1,0 +1,33 @@
+/* IEEExGOV.in — Responsive Styles */
+
+@media (max-width: 1024px) {
+  .footer-grid { grid-template-columns:1fr 1fr; }
+  .schemes-grid { grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); }
+}
+
+@media (max-width: 768px) {
+  :root { --container-padding:var(--sp-4); }
+  .nav-links { position:fixed;top:0;left:0;right:0;bottom:0;background:var(--white);flex-direction:column;justify-content:center;align-items:center;gap:var(--sp-8);z-index:var(--z-overlay);opacity:0;pointer-events:none;transition:all var(--transition-base); }
+  .nav-links.open { opacity:1;pointer-events:auto; }
+  .nav-links a { font-size:var(--fs-xl); }
+  .mobile-menu-btn { display:flex;z-index:var(--z-modal); }
+  .hero { padding:var(--sp-10) 0 var(--sp-12); }
+  .hero h1 { font-size:var(--fs-2xl); }
+  .section-title { font-size:var(--fs-2xl); }
+  .schemes-grid { grid-template-columns:1fr; }
+  .filter-bar { gap:var(--sp-2); }
+  .stats-bar { gap:var(--sp-6); }
+  .footer-grid { grid-template-columns:1fr; }
+  .chatbot-panel { bottom:0;right:0;left:0;width:100%;max-height:100vh;border-radius:var(--radius-xl) var(--radius-xl) 0 0; }
+  .chatbot-fab { bottom:16px;right:16px;width:54px;height:54px; }
+  .grievance-section { padding:var(--sp-6) var(--sp-4); }
+  .helpline-grid { grid-template-columns:1fr; }
+}
+
+@media (max-width: 480px) {
+  .hero-search input { padding:var(--sp-3) var(--sp-4);padding-right:100px; }
+  .hero-search .search-btn { padding:var(--sp-2) var(--sp-3);font-size:var(--fs-xs); }
+  .hero-categories { gap:var(--sp-1); }
+  .category-pill { font-size:var(--fs-xs);padding:var(--sp-1) var(--sp-3); }
+  .scheme-card-header { flex-direction:column; }
+}

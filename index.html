@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="IEEExGOV.in — Discover Indian Government Schemes matched to your profile. AI-powered, multilingual platform for Central Government benefits.">
+  <title>IEEExGOV.in — Indian Government Schemes Discovery Platform</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@600;700;800&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/variables.css">
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/components.css">
+  <link rel="stylesheet" href="/css/chatbot.css">
+  <link rel="stylesheet" href="/css/responsive.css">
+</head>
+<body>
+
+  <!-- Tricolor Top Bar -->
+  <div class="footer-tricolor"></div>
+
+  <!-- Navbar -->
+  <nav class="navbar" id="navbar">
+    <div class="container">
+      <a href="#" class="navbar-brand">
+        <span class="brand-icon">🇮🇳</span>
+        IEEE<span class="brand-dot">x</span>GOV<span class="brand-dot">.in</span>
+      </a>
+      <div class="nav-links" id="nav-links">
+        <a href="#schemes-section" data-i18n="navSchemes">Schemes</a>
+        <a href="#advisor-section" data-i18n="navAdvisor">AI Advisor</a>
+        <a href="#grievance-section" data-i18n="navGrievance">Grievance</a>
+        <a href="#support-section" data-i18n="navSupport">Support</a>
+      </div>
+      <div class="nav-actions">
+        <div class="lang-toggle">
+          <button id="lang-en" class="active">EN</button>
+          <button id="lang-hi">हिं</button>
+        </div>
+        <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero" id="hero">
+    <div class="container">
+      <div class="hero-badge">🏛️ <span data-i18n="tagline">Your Gateway to Government Schemes</span></div>
+      <h1 data-i18n="heroTitle">Discover Government Schemes <span class="highlight">Made For You</span></h1>
+      <p data-i18n="heroDesc">One platform to explore, filter, and find the right Central Government schemes based on your profile. Powered by AI to match you with the best opportunities.</p>
+      <div class="hero-search">
+        <input type="text" id="hero-search-input" data-i18n="searchPlaceholder" placeholder="Search schemes by name, ministry, or keyword...">
+        <button class="search-btn" id="hero-search-btn" data-i18n="searchBtn">Search</button>
+      </div>
+      <div class="hero-categories">
+        <button class="category-pill" data-category="Student"><span class="pill-icon">🎓</span> Student</button>
+        <button class="category-pill" data-category="Unemployed"><span class="pill-icon">💼</span> Unemployed</button>
+        <button class="category-pill" data-category="Entrepreneur"><span class="pill-icon">🚀</span> Entrepreneur</button>
+        <button class="category-pill" data-category="Farmer"><span class="pill-icon">🌾</span> Farmer</button>
+        <button class="category-pill" data-category="Women"><span class="pill-icon">👩</span> Women</button>
+        <button class="category-pill" data-category="Differently-abled"><span class="pill-icon">♿</span> Differently-abled</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Bar -->
+  <div class="stats-bar container">
+    <div class="stat-item"><div class="stat-number">20+</div><div class="stat-label" data-i18n="statsSchemes">Schemes Listed</div></div>
+    <div class="stat-item"><div class="stat-number">10+</div><div class="stat-label" data-i18n="statsMinistries">Ministries Covered</div></div>
+    <div class="stat-item"><div class="stat-number">9</div><div class="stat-label" data-i18n="statsLanguages">Languages Supported</div></div>
+  </div>
+
+  <!-- Schemes Section -->
+  <section class="section" id="schemes-section">
+    <div class="container">
+      <h2 class="section-title" data-i18n="schemesTitle">Explore Government Schemes</h2>
+      <p class="section-subtitle" data-i18n="schemesSubtitle">Browse through 20+ Central Government schemes across ministries</p>
+
+      <!-- Filter Bar -->
+      <div class="filter-bar">
+        <div class="filter-group" id="filter-category">
+          <button class="filter-dropdown-btn" data-i18n="filterCategory">Category ▾</button>
+          <div class="filter-dropdown"></div>
+        </div>
+        <div class="filter-group" id="filter-ministry">
+          <button class="filter-dropdown-btn" data-i18n="filterMinistry">Ministry ▾</button>
+          <div class="filter-dropdown"></div>
+        </div>
+        <div class="filter-group" id="filter-benefit">
+          <button class="filter-dropdown-btn" data-i18n="filterBenefit">Benefit Type ▾</button>
+          <div class="filter-dropdown"></div>
+        </div>
+        <button class="clear-filters-btn" id="clear-filters-btn" style="display:none" data-i18n="clearFilters">✕ Clear All</button>
+        <span id="results-count" style="margin-left:auto;font-size:var(--fs-sm);color:var(--text-muted)"></span>
+      </div>
+
+      <!-- Scheme Cards Grid -->
+      <div class="schemes-grid" id="schemes-grid"></div>
+    </div>
+  </section>
+
+  <!-- AI Advisor Section -->
+  <section class="section" id="advisor-section" style="background:var(--warm-gray)">
+    <div class="container">
+      <h2 class="section-title" data-i18n="advisorTitle">AI Scheme Advisor</h2>
+      <p class="section-subtitle" data-i18n="advisorSubtitle">Describe your situation and let our AI suggest the most relevant government schemes for you</p>
+      <div style="text-align:center">
+        <button class="btn btn-primary" onclick="document.getElementById('chatbot-fab').click()">
+          💬 <span data-i18n="navAdvisor">Open AI Advisor</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Grievance Section -->
+  <section class="section" id="grievance-section">
+    <div class="container">
+      <div class="grievance-section">
+        <h3 data-i18n="grievanceTitle">🏛️ Have a Grievance?</h3>
+        <p data-i18n="grievanceDesc">If you face issues with any government scheme, you can file a complaint through the Centralized Public Grievance Redress and Monitoring System (CPGRAMS).</p>
+        <a href="https://pgportal.gov.in/" target="_blank" rel="noopener noreferrer" class="btn btn-primary" id="grievance-btn" data-i18n="grievanceBtn">File Complaint on CPGRAMS ↗</a>
+        <div class="grievance-note" data-i18n="grievanceNote">💡 Tip: Select the relevant Ministry/Department, describe your issue clearly, and attach supporting documents. You'll receive a unique registration number to track your complaint.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Support & FAQ Section -->
+  <section class="section" id="support-section">
+    <div class="container">
+      <h2 class="section-title" data-i18n="supportTitle">Support & FAQs</h2>
+      <p class="section-subtitle" data-i18n="supportSubtitle">Find answers to common questions and ministry helpline numbers</p>
+
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-question"><span data-i18n="faq1q">What is IEEExGOV.in?</span><span class="faq-icon">+</span></button>
+          <div class="faq-answer"><p data-i18n="faq1a">IEEExGOV.in is an independent platform that aggregates information about Central Government schemes to help citizens discover benefits they're eligible for.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question"><span data-i18n="faq2q">Is this an official government website?</span><span class="faq-icon">+</span></button>
+          <div class="faq-answer"><p data-i18n="faq2a">No. This is an independent informational platform. Always verify details on official websites before applying.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question"><span data-i18n="faq3q">How does the AI Advisor work?</span><span class="faq-icon">+</span></button>
+          <div class="faq-answer"><p data-i18n="faq3a">The AI Advisor analyzes your situation based on age, education, employment status, location, and category, then matches you with the most relevant schemes.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question"><span data-i18n="faq4q">Which languages are supported for voice input?</span><span class="faq-icon">+</span></button>
+          <div class="faq-answer"><p data-i18n="faq4a">Hindi, Tamil, Telugu, Marathi, Bengali, Kannada, Malayalam, Gujarati, and English. Works best in Chrome.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question"><span data-i18n="faq5q">How do I apply for a scheme?</span><span class="faq-icon">+</span></button>
+          <div class="faq-answer"><p data-i18n="faq5a">Click 'Visit Portal' on any scheme card to go directly to the official government portal where you can apply.</p></div>
+        </div>
+      </div>
+
+      <!-- Helplines -->
+      <h3 class="section-title" style="margin-top:var(--sp-12)" data-i18n="helplineTitle">Ministry Helplines</h3>
+      <div class="helpline-grid">
+        <div class="helpline-card"><h4>MSME</h4><div class="helpline-number">1800-11-1955</div><div class="helpline-desc">Udyam Registration, PMEGP, PM Vishwakarma</div></div>
+        <div class="helpline-card"><h4>Skill India</h4><div class="helpline-number">1800-123-9626</div><div class="helpline-desc">PMKVY, Skill Development queries</div></div>
+        <div class="helpline-card"><h4>Startup India</h4><div class="helpline-number">1800-115-565</div><div class="helpline-desc">DPIIT Recognition, Tax exemptions</div></div>
+        <div class="helpline-card"><h4>PM-Kisan</h4><div class="helpline-number">155261</div><div class="helpline-desc">PM-Kisan Samman Nidhi queries</div></div>
+        <div class="helpline-card"><h4>NSP Scholarships</h4><div class="helpline-number">0120-6619540</div><div class="helpline-desc">National Scholarship Portal support</div></div>
+        <div class="helpline-card"><h4>CPGRAMS</h4><div class="helpline-number">011-23361002</div><div class="helpline-desc">Public Grievance filing support</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <div class="footer-tricolor"></div>
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h3>🇮🇳 IEEExGOV.in</h3>
+          <p data-i18n="footerDesc">An independent platform helping Indian citizens discover government schemes they're eligible for. Not affiliated with the Government of India.</p>
+        </div>
+        <div>
+          <h5 data-i18n="footerQuickLinks">Quick Links</h5>
+          <ul>
+            <li><a href="#schemes-section">Schemes</a></li>
+            <li><a href="#advisor-section">AI Advisor</a></li>
+            <li><a href="#grievance-section">Grievance</a></li>
+            <li><a href="#support-section">Support</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5 data-i18n="footerResources">Resources</h5>
+          <ul>
+            <li><a href="https://www.india.gov.in/" target="_blank" rel="noopener">India.gov.in</a></li>
+            <li><a href="https://www.myscheme.gov.in/" target="_blank" rel="noopener">myScheme</a></li>
+            <li><a href="https://pgportal.gov.in/" target="_blank" rel="noopener">CPGRAMS</a></li>
+            <li><a href="https://www.digilocker.gov.in/" target="_blank" rel="noopener">DigiLocker</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5 data-i18n="footerConnect">Connect</h5>
+          <ul>
+            <li><a href="https://www.mygov.in/" target="_blank" rel="noopener">MyGov</a></li>
+            <li><a href="https://umang.gov.in/" target="_blank" rel="noopener">UMANG App</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p data-i18n="footerDisclaimer">Disclaimer: This is not an official government website. Information is provided for reference only.</p>
+        <p>© 2026 IEEExGOV.in</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Chatbot FAB + Panel -->
+  <button class="chatbot-fab" id="chatbot-fab" aria-label="Open AI Advisor">💬</button>
+  <div class="chatbot-panel" id="chatbot-panel">
+    <div class="chatbot-header">
+      <div>
+        <h4>🤖 AI Scheme Advisor</h4>
+        <div class="chatbot-status"><span class="status-dot"></span> Online</div>
+      </div>
+      <button class="chatbot-close" id="chatbot-close" aria-label="Close chat">✕</button>
+    </div>
+    <div class="chatbot-messages" id="chat-messages"></div>
+    <div class="chatbot-suggestions">
+      <button class="suggestion-chip" data-i18n="suggestion1">I'm a 22-year-old graduate looking for a job</button>
+      <button class="suggestion-chip" data-i18n="suggestion2">I'm a woman wanting to start a small business</button>
+      <button class="suggestion-chip" data-i18n="suggestion3">I'm a farmer needing crop loan</button>
+    </div>
+    <div class="chatbot-input">
+      <select class="voice-lang-select" id="voice-lang" aria-label="Voice language"></select>
+      <button class="voice-btn" id="voice-btn" aria-label="Voice input">🎙️</button>
+      <input type="text" id="chat-input" data-i18n="chatPlaceholder" placeholder="Describe your situation...">
+      <button class="send-btn" id="chat-send" aria-label="Send message">➤</button>
+    </div>
+  </div>
+
+  <script type="module" src="/js/app.js"></script>
+</body>
+</html>

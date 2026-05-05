@@ -1,0 +1,13 @@
+{
+  "name": "ieeexgov-in",
+  "version": "1.0.0",
+  "description": "IEEExGOV.in — Multilingual Indian Government Schemes Discovery Platform",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^5.4.0"
+  }
+}
