@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Ministry of Agriculture and Farmers Welfare schemes for agricultural development">
+  <title>Ministry of Agriculture and Farmers Welfare Schemes - IEEExGOV.in</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@600;700;800&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/variables.css">
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/components.css">
+  <link rel="stylesheet" href="/css/chatbot.css">
+  <link rel="stylesheet" href="/css/responsive.css">
+</head>
+<body>
+
+  <!-- Tricolor Top Bar -->
+  <div class="footer-tricolor"></div>
+
+  <!-- Navbar -->
+  <nav class="navbar" id="navbar">
+    <div class="container">
+      <a href="index.html" class="navbar-brand">
+        <span class="brand-icon">🇮🇳</span>
+        IEEE<span class="brand-dot">x</span>GOV<span class="brand-dot">.in</span>
+      </a>
+      <div class="nav-links" id="nav-links">
+        <a href="index.html#schemes-section" data-i18n="navSchemes">Schemes</a>
+        <a href="index.html#ministries-section" data-i18n="navMinistries">Ministries</a>
+        <a href="index.html#advisor-section" data-i18n="navAdvisor">AI Advisor</a>
+        <a href="index.html#grievance-section" data-i18n="navGrievance">Grievance</a>
+        <a href="index.html#support-section" data-i18n="navSupport">Support</a>
+      </div>
+      <div class="nav-actions">
+        <div class="lang-toggle">
+          <button id="lang-en" class="active">EN</button>
+          <button id="lang-hi">हिं</button>
+        </div>
+        <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Ministry Detail Section -->
+  <section class="section" id="ministry-detail-section">
+    <div class="container">
+      <button class="back-btn" onclick="window.location.href='index.html#ministries-section'">← Back to Ministries</button>
+      
+      <div class="ministry-detail-header">
+        <div class="ministry-icon">🌾</div>
+        <h1>Ministry of Agriculture and Farmers Welfare</h1>
+        <p class="ministry-description">The Ministry of Agriculture and Farmers Welfare is responsible for formulation and implementation of policies for agricultural development, farmers' welfare, and food security. It focuses on increasing agricultural productivity, ensuring remunerative prices, and improving farmers' livelihood through various schemes and initiatives.</p>
+        <div class="ministry-stats">
+          <div class="stat-item">
+            <div class="stat-number">2</div>
+            <div class="stat-label">Schemes Available</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">Agriculture</div>
+            <div class="stat-label">Primary Focus</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">All India</div>
+            <div class="stat-label">Coverage</div>
+          </div>
+        </div>
+      </div>
+      
+      <h3 style="margin-bottom: var(--sp-4);">Available Schemes</h3>
+      <div class="ministry-schemes-grid" id="ministry-schemes-grid"></div>
+      
+      <div style="text-align: center; margin-top: var(--sp-8);" id="view-all-container" style="display: none;">
+        <button class="btn btn-primary" onclick="showAllSchemes()">View All Schemes</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Chatbot FAB + Panel -->
+  <button class="chatbot-fab" id="chatbot-fab" aria-label="Open AI Advisor">💬</button>
+  <div class="chatbot-panel" id="chatbot-panel">
+    <div class="chatbot-header">
+      <div>
+        <h4>🤖 AI Scheme Advisor</h4>
+        <div class="chatbot-status"><span class="status-dot"></span> Online</div>
+      </div>
+      <button class="chatbot-close" id="chatbot-close" aria-label="Close chat">✕</button>
+    </div>
+    <div class="chatbot-messages" id="chat-messages"></div>
+    <div class="chatbot-suggestions">
+      <button class="suggestion-chip" data-i18n="suggestion1">I'm a 22-year-old graduate looking for a job</button>
+      <button class="suggestion-chip" data-i18n="suggestion2">I'm a woman wanting to start a small business</button>
+      <button class="suggestion-chip" data-i18n="suggestion3">I'm a farmer needing crop loan</button>
+    </div>
+    <div class="chatbot-input">
+      <select class="voice-lang-select" id="voice-lang" aria-label="Voice language"></select>
+      <button class="voice-btn" id="voice-btn" aria-label="Voice input">🎙️</button>
+      <input type="text" id="chat-input" data-i18n="chatPlaceholder" placeholder="Describe your situation...">
+      <button class="send-btn" id="chat-send" aria-label="Send message">➤</button>
+    </div>
+  </div>
+
+  <script type="module" src="/js/ministry-page.js"></script>
+</body>
+</html>

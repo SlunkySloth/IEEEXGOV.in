@@ -28,6 +28,7 @@
       </a>
       <div class="nav-links" id="nav-links">
         <a href="#schemes-section" data-i18n="navSchemes">Schemes</a>
+        <a href="#ministries-section" data-i18n="navMinistries">Ministries</a>
         <a href="#advisor-section" data-i18n="navAdvisor">AI Advisor</a>
         <a href="#grievance-section" data-i18n="navGrievance">Grievance</a>
         <a href="#support-section" data-i18n="navSupport">Support</a>
@@ -46,10 +47,12 @@
 
   <!-- Hero Section -->
   <section class="hero" id="hero">
+    <video autoplay muted loop playsinline id="hero-video">
+      <source src="/images/hero-background.mp4" type="video/mp4">
+    </video>
     <div class="container">
       <div class="hero-badge">🏛️ <span data-i18n="tagline">Your Gateway to Government Schemes</span></div>
       <h1 data-i18n="heroTitle">Discover Government Schemes <span class="highlight">Made For You</span></h1>
-      <p data-i18n="heroDesc">One platform to explore, filter, and find the right Central Government schemes based on your profile. Powered by AI to match you with the best opportunities.</p>
       <div class="hero-search">
         <input type="text" id="hero-search-input" data-i18n="searchPlaceholder" placeholder="Search schemes by name, ministry, or keyword...">
         <button class="search-btn" id="hero-search-btn" data-i18n="searchBtn">Search</button>
@@ -98,6 +101,24 @@
 
       <!-- Scheme Cards Grid -->
       <div class="schemes-grid" id="schemes-grid"></div>
+    </div>
+  </section>
+
+  <!-- Ministries Section -->
+  <section class="section" id="ministries-section">
+    <div class="container">
+      <h2 class="section-title" data-i18n="ministriesTitle">Government Ministries</h2>
+      <p class="section-subtitle" data-i18n="ministriesSubtitle">Explore 10+ Central Government ministries and their schemes</p>
+      
+      <div class="ministries-grid" id="ministries-grid"></div>
+    </div>
+  </section>
+
+  <!-- Ministry Detail Section -->
+  <section class="section" id="ministry-detail-section" style="display:none;">
+    <div class="container">
+      <button class="back-btn" id="back-to-ministries">← Back to Ministries</button>
+      <div id="ministry-detail-content"></div>
     </div>
   </section>
 
@@ -181,6 +202,7 @@
           <h5 data-i18n="footerQuickLinks">Quick Links</h5>
           <ul>
             <li><a href="#schemes-section">Schemes</a></li>
+            <li><a href="#ministries-section">Ministries</a></li>
             <li><a href="#advisor-section">AI Advisor</a></li>
             <li><a href="#grievance-section">Grievance</a></li>
             <li><a href="#support-section">Support</a></li>

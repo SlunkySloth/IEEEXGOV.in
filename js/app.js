@@ -1,9 +1,10 @@
 // IEEExGOV.in — Main App Initialization
 import { initI18n, setLang, getLang, t } from './i18n.js';
-import { renderSchemes, searchSchemes } from './schemes.js';
+import { renderSchemes, searchSchemes, viewAllSchemes } from './schemes.js';
 import { initFilters, filterByCategory } from './filters.js';
 import { initChatbot } from './chatbot.js';
 import { initVoice } from './voice.js';
+import { initMinistries } from './ministries.js';
 import { schemes } from './data/schemes-data.js';
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -12,6 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initFilters();
   initChatbot();
   initVoice();
+  initMinistries();
   initNavbar();
   initSearch();
   initFAQ();
@@ -101,4 +103,8 @@ function initScrollAnimations() {
   }, { threshold: 0.1 });
 
   document.querySelectorAll('.section').forEach(el => observer.observe(el));
+  document.querySelectorAll('.scheme-card').forEach(card => observer.observe(card));
 }
+
+// Make viewAllSchemes globally available
+window.viewAllSchemes = viewAllSchemes;
